@@ -1,0 +1,19 @@
+@model IEnumerable<MvcApp.ViewModels.VehicleViewModel>
+
+@{
+    ViewData["Title"] = "Våra aktuella bilar i lager";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<article>
+    <section>        
+        @foreach (var vehicle in Model!)
+        {
+            <div>
+                <a asp-action="Details">@vehicle.VehicleName</a>
+                <p>@vehicle.ModelYear @vehicle.Mileage</p>
+            </div>
+        }
+    </section>
+</article>
