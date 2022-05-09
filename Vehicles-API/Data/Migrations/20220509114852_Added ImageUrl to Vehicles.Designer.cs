@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Vehicles_API.Data;
 
@@ -10,9 +11,10 @@ using Vehicles_API.Data;
 namespace Vehicles_API.Data.Migrations
 {
     [DbContext(typeof(VehicleContext))]
-    partial class VehicleContextModelSnapshot : ModelSnapshot
+    [Migration("20220509114852_Added ImageUrl to Vehicles")]
+    partial class AddedImageUrltoVehicles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.4");
@@ -229,9 +231,6 @@ namespace Vehicles_API.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Description")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("ImageUrl")
                         .HasColumnType("TEXT");
 
@@ -249,9 +248,6 @@ namespace Vehicles_API.Data.Migrations
 
                     b.Property<string>("RegNo")
                         .HasColumnType("TEXT");
-
-                    b.Property<int>("Value")
-                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 

@@ -80,4 +80,19 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run();
+using var scope = app.Services.CreateScope();
+var services = scope.ServiceProvider;
+try
+{
+  var context = services.GetRequiredService<VehicleContext>();
+  await context.Database.MigrateAsync();
+  await LoadData.LoadManufacturers(context);
+  await LoadData.LoadVehicles(context);
+}
+catch (Exception ex)
+{
+  var logger = services.GetRequiredService<ILogger<Program>>();
+  logger.LogError(ex, "Ett fel inträffade när migrering utfördes");
+}
+
+await app.RunAsync();

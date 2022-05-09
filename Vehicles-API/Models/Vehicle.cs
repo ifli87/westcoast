@@ -10,6 +10,10 @@ namespace Vehicles_API.Models
     public string? Model { get; set; }
     public int ModelYear { get; set; }
     public int Mileage { get; set; }
+    public string? ImageUrl { get; set; }
+    public string? Description { get; set; }
+    public int Value { get; set; }
+
     [ForeignKey("MakeId")]
     public Manufacturer Manufacturer { get; set; } = new Manufacturer();
   }

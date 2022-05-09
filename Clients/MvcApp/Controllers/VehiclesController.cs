@@ -1,8 +1,5 @@
-using System.Collections.Generic;
-using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 using MvcApp.Models;
-using MvcApp.ViewModels;
 
 namespace MvcApp.Controllers
 {
